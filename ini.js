@@ -1,4 +1,3 @@
-
 exports.parse = exports.decode = decode
 exports.stringify = exports.encode = encode
 
@@ -15,13 +14,13 @@ function encode (obj, section) {
     var val = obj[k]
     if (val && Array.isArray(val)) {
         val.forEach(function(item) {
-            out += safe(k + "[]") + " = " + safe(item) + "\n"
+            out += safe(k + "[]") + "=" + safe(item) + "\n"
         })
     }
     else if (val && typeof val === "object") {
       children.push(k)
     } else {
-      out += safe(k) + " = " + safe(val) + eol
+      out += safe(k) + "=" + safe(val) + eol
     }
   })
 
